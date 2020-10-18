@@ -1,0 +1,12 @@
+baseURL = "https://alexmitelman.github.io/"
+languageCode = "en-us"
+title = "Alex Mitelman: personal website"
+theme = "fuji"
+
+googleAnalytics = "UA-180800968-1"
+
+[markup]
+  [markup.tableOfContents]
+    endLevel = 3
+    ordered = false
+    startLevel = 1
