@@ -175,12 +175,6 @@ You may add this to the auto-run shell script like `.bashrc` or `.zshrc` if `Poe
 export PATH="$HOME/.poetry/bin:$PATH"
 ```
 
-Going forward, use this command to get the latest stable version:
-
-```bash
-poetry self update
-```
-
 You can also enable tab completions for your shell. The process is described [here](https://python-poetry.org/docs/#enable-tab-completion-for-bash-fish-or-zsh).
 
 ### Create new project
@@ -308,6 +302,25 @@ So let's do exactly what we were asked. Because we called VS Code from within th
 Notice that there are two options for 3.8.5, we should select the one that sits under virtual environment (see file path, it should contain `virtualenv`).
 
 In general, you can like this Github issue to add support for Poetry to VS Code: [https://github.com/microsoft/vscode-python/issues/8372](https://github.com/microsoft/vscode-python/issues/8372) to keep track of the progress. As Brett Cannon [said](https://github.com/microsoft/vscode-python/issues/8372#issuecomment-668807397), VS Code team is reworking environment discovery code, so eventually Poetry will be fully supported by VS Code.
+
+### How to upgrade Poetry
+
+Simply running `poetry self update` will bump to the most recent version of Poetry.
+
+If you run into error
+
+```
+ImportError: No module named cleo
+```
+
+you'd need to reinstall Poetry by removing it first:
+
+```bash
+curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py > get-poetry.py
+python get-poetry.py --uninstall
+python get-poetry.py
+rm get-poetry.py
+```
 
 ### How to upgrade Python version with Poetry and pyenv
 
