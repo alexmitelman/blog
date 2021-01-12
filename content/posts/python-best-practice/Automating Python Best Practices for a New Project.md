@@ -1,6 +1,7 @@
 ---
-title: "Automating Python Best Practices for a New Project in 2020"
-date: 2020-10-18T14:35:48+03:00
+title: "Automating Python Best Practices for a New Project in 2021"
+date: 2020-10-18
+lastmod: 2021-01-12
 draft: false
 tags: ["python", "vs code"]
 TableOfContents: true
@@ -810,7 +811,7 @@ Optionally, you can install it manually with:
 poetry add --dev black --allow-prereleases
 ```
 
-`--allow-prereleases` option is here because Black is actually still in Beta in 2020. Initially, 2019 releases were planned to be the last ones in this status but it is what it is. Many production and open source projects already use it by default to format the code, so it's pretty safe to assume that Black is relatively stable.
+`--allow-prereleases` option is here because Black is actually still in Beta in 2021. Initially, 2019 releases were planned to be the last ones in this status but it is what it is. Many production and open source projects already use it by default to format the code, so it's pretty safe to assume that Black is relatively stable.
 
 To configure Black, let's open `pyproject.toml` and add following section:
 
