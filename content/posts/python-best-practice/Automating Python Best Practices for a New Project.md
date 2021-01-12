@@ -505,12 +505,17 @@ echo '.coverage' > .gitignore
 
 ### Use Git
 
-We didn't talk about version control yet, and we should. Obviously, we are using Git in 2020.
-
-If there is no repository for the project yet, we should create it with:
+We didn't talk about version control yet, and we should. Obviously, we are using Git in 2021.
+Install or update to the latest version. For macOS:
 
 ```bash
-git init
+brew install git
+```
+
+If there is no repository for the project yet, we should create it. Github creates new repositories with `main` default branch now, so let's create it this way too:
+
+```bash
+git init -b main
 ```
 
 First thing first, we should have `.gitignore` file, so we don't commit some temporary or binary files to the repo. We can manually copy-paste it from here [https://github.com/github/gitignore/blob/master/Python.gitignore](https://github.com/github/gitignore/blob/master/Python.gitignore) or simply run following command which will create `.gitignore` and download content of the above link into it. You must be in your project root directory.
@@ -1282,7 +1287,7 @@ repos:
 ```bash
 echo '.coverage' > .gitignore
 curl -s https://raw.githubusercontent.com/github/gitignore/master/Python.gitignore >> .gitignore
-git init
+git init -b main
 git add .
 git commit -m 'Initial commit'
 pre-commit install
