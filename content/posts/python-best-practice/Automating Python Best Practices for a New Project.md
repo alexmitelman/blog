@@ -1,7 +1,7 @@
 ---
-title: "Automating Python Best Practices for a New Project in 2021"
+title: "Python Best Practices for a New Project in 2021"
 date: 2020-10-18
-lastmod: 2021-01-12
+lastmod: 2021-03-01
 draft: false
 tags: ["python", "vs code"]
 TableOfContents: true
@@ -17,9 +17,9 @@ They say that you should stick to algorithms and data structures, that you can l
 
 This is my very opinionated attempt to compile some of the best practices on setting up a new Python environment for local development. There are also advice of integration these tools with Visual Studio Code, however, it's not necessary to use this particular editor. I'm going to update this page as there are some changes with the underlying tools. I also plan to use it myself as a boilerplate for starting a new Python project. The tutorial is long because I explain in detail purpose and usage of the tools, however, the end result is quick set up of the new project environment that can be achieved in just a couple of minutes. See Fast Track section.
 
-## Manage Python versions with pyenv
+## How to manage Python versions with pyenv?
 
-### Why?
+### Why use pyenv?
 
 Many tutorials start with the same thing: go to [python.org](http://python.org) and download the latest version of the language for you platform. Don't listen to them. There is a better way. And here is why.
 
@@ -31,7 +31,7 @@ At some point, there's going to be a mess of different Python executables on you
 
 And there is. It's called `pyenv` - [https://github.com/pyenv/pyenv](https://github.com/pyenv/pyenv)
 
-### Install
+### How to install pyenv?
 
 Install for Mac:
 
@@ -50,7 +50,7 @@ For Windows, there is `pyenv for Windows` - [https://github.com/pyenv-win/pyenv-
 
 But you'd probably better off with Windows Subsystem for Linux (WSL), then installing it the Linux way.
 
-### How to use
+### How to use pyenv?
 
 First, we can see a list of all Python executables, if any, that are installed on your machine (at least the ones `pyenv` was able to find):
 
@@ -138,9 +138,9 @@ Python 2.7.16
 
 Alternative tool: `asdf`: [https://asdf-vm.com/](https://asdf-vm.com/)
 
-## Dependency management with Poetry
+## Dependency management for Python with Poetry
 
-### Why?
+### Why use Poetry?
 
 By default, Python packages are installed with `pip install`.  In reality nobody uses it this way. It installs all your dependencies into one version of Python interpreter which messes up dependencies.
 
@@ -152,7 +152,7 @@ Virtual environments evolved from `venv`, `virtualenv`, `virtualenvwrapper` to `
 
 Poetry official website: [https://python-poetry.org/](https://python-poetry.org/)
 
-### Install
+### How to install Poetry?
 
 So, let's get it started. It is recommended to install Poetry on a system level.
 
@@ -178,7 +178,7 @@ export PATH="$HOME/.poetry/bin:$PATH"
 
 You can also enable tab completions for your shell. The process is described [here](https://python-poetry.org/docs/#enable-tab-completion-for-bash-fish-or-zsh).
 
-### Create new project
+### How to create new project with Poetry?
 
 Poetry creates a folder structure for you, so make sure to change your current directory to one that is supposed to be a parent directory for the new project and then run:
 
@@ -194,7 +194,7 @@ Now, let's see what `Poetry` created for us:
 cd my-project; ls
 ```
 
-### Set Python version per project
+### How to set Python version per project?
 
 We were still using old Python 2.7, remember? For our new project, we want to use modern version of Python, so we are back to `pyenv` tool. As we are still in the project directory, set Python version locally for this directory:
 
@@ -246,7 +246,7 @@ requires = ["poetry-core>=1.0.0a5"]
 build-backend = "poetry.core.masonry.api"
 ```
 
-### How to use
+### How to use Poetry?
 
 On the next step, you probably want to install your first dependency: some library or framework on top of which you plan to build the project. For example:
 
@@ -268,7 +268,7 @@ To bump all the dependencies to the latest versions:
 poetry update
 ```
 
-### How to use Poetry with VS Code
+### How to use Poetry with VS Code?
 
 VS Code doesn't detect Poetry automatically. Good news though, there is a simple way to make VS Code detect virtual environment created by Poetry.
 
@@ -304,7 +304,7 @@ Notice that there are two options for 3.8.5, we should select the one that sits 
 
 In general, you can like this Github issue to add support for Poetry to VS Code: [https://github.com/microsoft/vscode-python/issues/8372](https://github.com/microsoft/vscode-python/issues/8372) to keep track of the progress. As Brett Cannon [said](https://github.com/microsoft/vscode-python/issues/8372#issuecomment-668807397), VS Code team is reworking environment discovery code, so eventually Poetry will be fully supported by VS Code.
 
-### How to upgrade Poetry
+### How to upgrade Poetry?
 
 Simply running `poetry self update` will bump to the most recent version of Poetry.
 
@@ -323,7 +323,7 @@ python get-poetry.py
 rm get-poetry.py
 ```
 
-### How to upgrade Python version with Poetry and pyenv
+### How to upgrade Python version with Poetry and pyenv?
 
 Time has passed and the new Python version was released. There are new features and bugfixes, so we want to bump Python version in our project. This is a pretty straightforward task for `pyenv` and Poetry.
 
@@ -381,9 +381,9 @@ VS Code will prompt you to choose linter, code formatter, etc. Please ignore tho
 
 Alternative: `venv` - built in with Python.
 
-## Test with pytest
+## How to test with pytest?
 
-### Why?
+### Why use pytest?
 
 Tests are important, so first thing we do after creating the project is taking care of tests. 
 
@@ -399,7 +399,7 @@ cd tests; ls
 __init__.py        __pycache__        test_my_project.py
 ```
 
-### Use
+### How to use pytest with VS Code?
 
 As an intentionally oversimplified example, let's create and test function that multiplies two numbers. According to TDD, we create test first.
 
@@ -462,7 +462,7 @@ pytest
 
 Alternative: `unittest` - included with default Python distribution. Disadvantages: non-Pythonic camelcase API, slightly harder syntax.
 
-## Measure tests coverage with pytest-cov
+## How to measure tests coverage with pytest-cov?
 
 Where tests, there's coverage. We can install `pytest-cov` plugin for `pytest` to measure tests coverage:
 
@@ -502,7 +502,7 @@ This also generates `.coverage` file which we don't want in our version control,
 echo '.coverage' > .gitignore
 ```
 
-## Run checks before committing changes with pre-commit
+## How to run checks before committing changes with pre-commit?
 
 ### Use Git
 
@@ -531,13 +531,13 @@ Now let's add everything we have so far to version control:
 git add .
 ```
 
-### Why?
+### Why run checks before commit?
 
 As you can see (and will see further down in the tutorial), the boilerplate for the project is big. It's easy to miss out on something or forget to apply some checks before committing your code to the remote repo. As a consequence, the code will not pass CI automation, your colleagues or maintainers may ask you to make some changes to the code during the code review. All this because of a small nitpick like absence of a newline character at the end of a file. Having newline there is a [POSIX standard](https://pubs.opengroup.org/onlinepubs/9699919799/basedefs/V1_chap03.html#tag_03_206). Even if you are well aware of that, it's very easy to forget or miss out on this. All this back and forth is just a waste of time which could be easily avoided if there was some automation before we commit a piece of code. And there is.
 
 Please welcome `[pre-commit](https://pre-commit.com/)`. It's a tool to run automatic checks on every git commit. It's easy to use and it doesn't require root access. By the way, `pre-commit` is written in Python but can be used for projects in various programming languages.
 
-### Install and use
+### How to install and use pre-commit?
 
 `pre-commit` can be installed on a system level but we don't want to do that exactly for the reasons we started using `pyenv` - we are going to use different Python versions and our dependencies should be in order. That's why we install `pre-commit` as a development dependency:
 
@@ -652,7 +652,7 @@ Updating https://github.com/pre-commit/pre-commit-hooks ... updating v2.4.0 -> v
 
 ## Code analysis with Flake8 linter
 
-### Why?
+### Why use linter for Python project?
 
 Linters are on the front line of the fight with errors and bugs. They signal you even before you run the code. Obviously, IDEs support linters, so you don't even have to run the manually. IDE with the help of linter can flag wrong code right in the moment you actually write it.
 
@@ -672,7 +672,7 @@ While it's not as strict as Pylint, it still does a great job on a first line of
 
 That's why I recommend sticking to Flake8. You can still use Pylint as a second linter but Flake8 is a bare minimum.
 
-### Install
+### How to install Flake8?
 
 VS Code will prompt you to select linter for the project. You can also press ⇧⌘P, start typing "linter" and choose "Python: Select Linter"
 
@@ -690,7 +690,7 @@ If it doesn't happen or if you want to install it from the command line, here is
 poetry add flake8 --dev
 ```
 
-### Use
+### How to use Flake8?
 
 Getting back to a small portion of the code we wrote in a previous section. VS Code marks red some code that linter found problem with. By setting a pointer to that part we can see an error message, error number (that we can search on the internet), and the linter that flagged the error.
 
@@ -707,7 +707,7 @@ flake8 .
 ./tests/test_my_project.py:7:1: E302 expected 2 blank lines, found 1
 ```
 
-### Add git hook
+### How to add Flake8 to git hooks?
 
 Red marks in IDE is easy to ignore sometimes. It's also easy to forget running `flake8` command before submitting our code. That's why we have git hooks. We can add Flake8 to the hooks list, so it will check our code with linter automatically.
 
@@ -769,7 +769,7 @@ Don't hurry fixing this error to satisfy the linter. Computer already found the 
 
 ## Formatting code with Black
 
-### Why?
+### Why to format code with Black?
 
 Every person writes code in their own style. Even on Python which forces you pretty much to indent blocks of code, it is very much possible to write the same thing in different ways. 
 
@@ -789,7 +789,7 @@ And yes, while PEP8 was created in 2001, it's received some [updates](https://gi
 
 Thankfully, this is an option that Black allows us to adjust.
 
-### Install
+### How to install Black?
 
 In VS Code, open some Python file in our project. In my case, I have `test_my_project.py` that Flake8 was complaining about. ⇧⌘P and start typing "format", then choose "Format Document".
 
@@ -852,7 +852,7 @@ We also have to suppress some error at Flake8 to make it work with Black. For th
 extend-ignore = E203
 ```
 
-### Use
+### Use to use Black?
 
 Black usage is fairly simple. Just run it, and it formats the code:
 
@@ -881,7 +881,7 @@ Check for added large files..............................................Passed
 flake8...................................................................Passed
 ```
 
-### Add git hook
+### How to add Black to git hooks?
 
 Same as with Flake8, it would be great to automate running Black, so we don't have to bother. Let's add following to `.pre-commit-config.yaml`
 
@@ -927,13 +927,13 @@ This will add rulers only for Python. 72 chars is for docstrings.
 
 ## Static typing with Mypy
 
-### Why?
+### Why use static type checker with Python?
 
 Type wars started in 70s. IBM with Smalltalk against Sun with Java. As we all know, strongly typed Java won, although Smalltalk being dynamically typed language was considered as a competitive advantage by some companies due to rapid development. Of course, type reduces amount of bugs and runtime errors which can be also solved by having 100% test coverage (as [Uncle Bob claims](https://blog.cleancoder.com/uncle-bob/2016/05/01/TypeWars.html), that's one of the reasons of Python's success). However, let's not forget that not all projects have 100% coverage.
 
 But can we have best of two worlds? Can we have type safety with rapid software development? I think, with Mypy we can. Mypy is a static code analysis tool that makes sure that the code is type safe. The project became so valuable that Python creator Guido van Rossum added type annotations to Python and joined Mypy development. Using type annotations also helps IDE providing a better code completion. As a bonus, type annotations make code more readable for humans too.
 
-### Install
+### How to install mypy
 
 In VS Code, you can edit `settings.json` file in `.vscode` directory. Set `"python.linting.mypyEnabled": true`. After that, open any Python file in the project, for example `math.py`. VS Code will detect that Mypy is not installed yet.
 
@@ -947,7 +947,7 @@ Alternatively, you can install Mypy manually:
 poetry add --dev mypy
 ```
 
-### Use
+### How to use mypy?
 
 Now we can try running this tool on our small project:
 
@@ -1055,7 +1055,7 @@ Commit changes:
 git commit -m 'Add Mypy'
 ```
 
-### Add git hook
+### How to add mypy to git hooks?
 
 Obviously, we want make sure that Mypy runs before committing the code. Add following to `.pre-commit-config.yaml`:
 
@@ -1086,7 +1086,7 @@ mypy.....................................................................Passed
 
 One last thing: imports.
 
-### Why?
+### Why sort imports isort?
 
 [PEP8 specifies](https://www.python.org/dev/peps/pep-0008/#imports) that imports should be sorted in the following order: standard library, third party, local. In addition we want imports to be beautiful and human friendly.
 
@@ -1130,7 +1130,7 @@ from my_lib import Object, Object2, Object3
 
 Way better, isn't it?
 
-## Install, use, add git hook
+## How to install, use, and add isort to git hooks?
 
 VS Code (with Python extension) uses `isort` internally, so there is no additional configuration required. If you don't plan to use it from the command line, there is even no need to install it separately because `pre-commit` installs all dependencies to a its own separate environment.
 
