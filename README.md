@@ -1,0 +1,1 @@
+To deploy to Github Pages run `./deploy.sh` from the root of the project.
