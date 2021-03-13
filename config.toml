@@ -1,4 +1,4 @@
-baseURL = "https://alexmitelman.github.io/"
+baseURL = "https://mitelman.engineering/"
 languageCode = "en-us"
 title = "Alex Mitelman: personal website"
 theme = "fuji"
