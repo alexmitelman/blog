@@ -1,7 +1,7 @@
 baseURL = "https://mitelman.engineering/"
 languageCode = "en-us"
 title = "Alex Mitelman: personal website"
-theme = "fuji"
+theme = "fuji2"
 
 googleAnalytics = "UA-180800968-1"
 
