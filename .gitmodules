@@ -5,3 +5,6 @@
 	path = public
 	url = https://github.com/alexmitelman/alexmitelman.github.io.git
 	branch = master
+[submodule "themes/fuji2"]
+	path = themes/fuji2
+	url = https://github.com/amzrk2/hugo-theme-fuji.git
