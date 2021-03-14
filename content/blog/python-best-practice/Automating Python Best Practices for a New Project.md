@@ -294,11 +294,11 @@ Install [Pylance](https://marketplace.visualstudio.com/items?itemName=ms-python.
 
 As you open any Python file, VS Code immediately asks us to choose a Python interpreter
 
-![images/python-best-practice/Untitled.png](images/python-best-practice/python-best-practice/Untitled.png)
+![/images/blog/python-best-practice/Untitled.png](/images/blog/python-best-practice//Untitled.png)
 
 So let's do exactly what we were asked. Because we called VS Code from within the virtual environment, the right interpreter will be presented as an option and we can choose it.
 
-![images/python-best-practice/Untitled%201.png](images/python-best-practice/Untitled%201.png)
+![/images/blog/python-best-practice/Untitled%201.png](/images/blog/python-best-practice/Untitled%201.png)
 
 Notice that there are two options for 3.8.5, we should select the one that sits under virtual environment (see file path, it should contain `virtualenv`).
 
@@ -371,9 +371,9 @@ code .
 
 Finally, at the bottom left corner click on Python and choose the updated version from the list. Make sure that you pick virtual environment version.
 
-![images/python-best-practice/Untitled%202.png](images/python-best-practice/Untitled%202.png)
+![/images/blog/python-best-practice/Untitled%202.png](/images/blog/python-best-practice/Untitled%202.png)
 
-![images/python-best-practice/Untitled%203.png](images/python-best-practice/Untitled%203.png)
+![/images/blog/python-best-practice/Untitled%203.png](/images/blog/python-best-practice/Untitled%203.png)
 
 Don't forget to update `[tool.poetry.dependencies]` section in  `pyproject.toml` file to reflect the Python version support. 
 
@@ -415,27 +415,27 @@ def test_multiply_two_numbers():
 
 Instead of running our tests from the terminal, let's take advantage of code editor. ⇧⌘P - start typing "Python: Discover Tests" and select it from the dropdown. (Keybord shortcuts here and further are for macOS)
 
-![images/python-best-practice/Untitled%204.png](images/python-best-practice/Untitled%204.png)
+![/images/blog/python-best-practice/Untitled%204.png](/images/blog/python-best-practice/Untitled%204.png)
 
 Test framework selection appears in the bottom right corner. Click the button:
 
-![images/python-best-practice/Untitled%205.png](images/python-best-practice/Untitled%205.png)
+![/images/blog/python-best-practice/Untitled%205.png](/images/blog/python-best-practice/Untitled%205.png)
 
 and select `pytest` in the dropdown:
 
-![images/python-best-practice/Untitled%206.png](images/python-best-practice/Untitled%206.png)
+![/images/blog/python-best-practice/Untitled%206.png](/images/blog/python-best-practice/Untitled%206.png)
 
 As the last step, it asks you to provide directory that contains all your tests:
 
-![images/python-best-practice/Untitled%207.png](images/python-best-practice/Untitled%207.png)
+![/images/blog/python-best-practice/Untitled%207.png](/images/blog/python-best-practice/Untitled%207.png)
 
 VS Code discovered our tests, so now it adds fancy buttons to run or debug particular test.
 
-![images/python-best-practice/Untitled%208.png](images/python-best-practice/Untitled%208.png)
+![/images/blog/python-best-practice/Untitled%208.png](/images/blog/python-best-practice/Untitled%208.png)
 
 As we run tests with VS Code, it obviously marks them red as we didn't implement the function yet.
 
-![images/python-best-practice/Untitled%209.png](images/python-best-practice/Untitled%209.png)
+![/images/blog/python-best-practice/Untitled%209.png](/images/blog/python-best-practice/Untitled%209.png)
 
 So let's create `[math.py](http://math.py)` file in `my_project` directory and then implement our simple function:
 
@@ -446,7 +446,7 @@ def multiply_two_numbers(a, b):
 
 As we run tests again, they are marked green now
 
-![images/python-best-practice/Untitled%2010.png](images/python-best-practice/Untitled%2010.png)
+![/images/blog/python-best-practice/Untitled%2010.png](/images/blog/python-best-practice/Untitled%2010.png)
 
 Alternatively, you can run tests from the command line with
 
@@ -676,11 +676,11 @@ That's why I recommend sticking to Flake8. You can still use Pylint as a second 
 
 VS Code will prompt you to select linter for the project. You can also press ⇧⌘P, start typing "linter" and choose "Python: Select Linter"
 
-![images/python-best-practice/Untitled%2011.png](images/python-best-practice/Untitled%2011.png)
+![/images/blog/python-best-practice/Untitled%2011.png](/images/blog/python-best-practice/Untitled%2011.png)
 
 Then choose "flake8"
 
-![images/python-best-practice/Untitled%2012.png](images/python-best-practice/Untitled%2012.png)
+![/images/blog/python-best-practice/Untitled%2012.png](/images/blog/python-best-practice/Untitled%2012.png)
 
 VS Code should pick up your virtual environment and install Flake8 as a development dependency.
 
@@ -694,7 +694,7 @@ poetry add flake8 --dev
 
 Getting back to a small portion of the code we wrote in a previous section. VS Code marks red some code that linter found problem with. By setting a pointer to that part we can see an error message, error number (that we can search on the internet), and the linter that flagged the error.
 
-![images/python-best-practice/Untitled%2013.png](images/python-best-practice/Untitled%2013.png)
+![/images/blog/python-best-practice/Untitled%2013.png](/images/blog/python-best-practice/Untitled%2013.png)
 
 We can also run Flake8 manually to see the same result:
 
@@ -793,17 +793,17 @@ Thankfully, this is an option that Black allows us to adjust.
 
 In VS Code, open some Python file in our project. In my case, I have `test_my_project.py` that Flake8 was complaining about. ⇧⌘P and start typing "format", then choose "Format Document".
 
-![images/python-best-practice/Untitled%2014.png](images/python-best-practice/Untitled%2014.png)
+![/images/blog/python-best-practice/Untitled%2014.png](/images/blog/python-best-practice/Untitled%2014.png)
 
 It will ask you which formatter would you like to use.
 
-![images/python-best-practice/Untitled%2015.png](images/python-best-practice/Untitled%2015.png)
+![/images/blog/python-best-practice/Untitled%2015.png](/images/blog/python-best-practice/Untitled%2015.png)
 
 Click "Use black".
 
 VS Code will detect that we use Poetry and will install Black for us automatically.
 
-![images/python-best-practice/Untitled%2016.png](images/python-best-practice/Untitled%2016.png)
+![/images/blog/python-best-practice/Untitled%2016.png](/images/blog/python-best-practice/Untitled%2016.png)
 
 Optionally, you can install it manually with:
 
@@ -937,7 +937,7 @@ But can we have best of two worlds? Can we have type safety with rapid software 
 
 In VS Code, you can edit `settings.json` file in `.vscode` directory. Set `"python.linting.mypyEnabled": true`. After that, open any Python file in the project, for example `math.py`. VS Code will detect that Mypy is not installed yet.
 
-![images/python-best-practice/Untitled%2017.png](images/python-best-practice/Untitled%2017.png)
+![/images/blog/python-best-practice/Untitled%2017.png](/images/blog/python-best-practice/Untitled%2017.png)
 
 Click install, and it will automatically install it with Poetry.
 
@@ -1017,7 +1017,7 @@ Found 3 errors in 2 files (checked 4 source files)
 
 In addition, VS Code uses Mypy as a linter and marks incorrect parts:
 
-![images/python-best-practice/Untitled%2018.png](images/python-best-practice/Untitled%2018.png)
+![/images/blog/python-best-practice/Untitled%2018.png](/images/blog/python-best-practice/Untitled%2018.png)
 
 To fix it, let's add type annotation to our function:
 
@@ -1154,7 +1154,7 @@ line_length = 79
 
 In VS Code, ⇧⌘P, then start typing "sort imports". VS Code will show:
 
-![images/python-best-practice/Untitled%2019.png](images/python-best-practice/Untitled%2019.png)
+![/images/blog/python-best-practice/Untitled%2019.png](/images/blog/python-best-practice/Untitled%2019.png)
 
 Alternatively, if you installed it, run in the project root:
 
