@@ -1,7 +1,22 @@
 baseURL = "https://mitelman.engineering/"
 languageCode = "en-us"
-title = "Alex Mitelman: personal website"
+defaultContentLanguage = "en"
+title = "Alex Mitelman"
 theme = "fuji2"
+
+enableEmoji = true
+enableRobotsTXT = true
+[outputs]
+  home = ["HTML", "RSS"]
+
+[params]
+  author = "Alex Mitelman" # You can also set author in post front matter individually
+  subTitle = "Personal website"
+  showWordCounter = true
+  showReadTime = true
+
+  # Posts shown in homepage
+  mainSections = ["blog", "system-design-weekly"]
 
 googleAnalytics = "UA-180800968-1"
 
@@ -10,3 +25,26 @@ googleAnalytics = "UA-180800968-1"
     endLevel = 3
     ordered = false
     startLevel = 1
+
+[menu]
+  [[menu.nav]]
+    name = "Home"
+    url = "/"
+    weight = 1
+  [[menu.nav]]
+    name = "System Design Weekly"
+    url = "/tags/system-design/"
+    weight = 2
+  [[menu.nav]]
+    name = "RSS"
+    url = "/index.xml"
+    weight = 3
+
+  [[menu.link]]
+    name = "Email"
+    url = "mailto:alex@mitelman.engineering"
+    weight = 1
+  [[menu.link]]
+    name = "LinkedIn"
+    url = "https://www.linkedin.com/in/alex-mitelman/"
+    weight = 2
