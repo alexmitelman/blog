@@ -15,7 +15,7 @@ The goal of this tutorial is to describe Python development ecosystem. It can be
 
 They say that you should stick to algorithms and data structures, that you can learn a new language in just a couple of weeks, that it's just a new syntax. I completely agree that algorithms and data structures are extremely important but when it comes to language it's slightly more than just syntax. There is an entire infrastructure of tools and best practices around it. For someone coming from a different background, it can be overwhelming to keep up with all this stuff, especially taking into consideration that sometimes information should be found in different places.
 
-This is my very opinionated attempt to compile some of the best practices on setting up a new Python environment for local development. There are also advice of integration these tools with Visual Studio Code, however, it's not necessary to use this particular editor. I'm going to update this page as there are some changes with the underlying tools. I also plan to use it myself as a boilerplate for starting a new Python project. The tutorial is long because I explain in detail purpose and usage of the tools, however, the end result is quick set up of the new project environment that can be achieved in just a couple of minutes. See Fast Track section.
+This is my very opinionated attempt to compile some of the best practices on setting up a new Python environment for local development. There are also advices for integration these tools with Visual Studio Code, however, it's not necessary to use this particular editor. I'm going to update this page as there are some changes with the underlying tools. I also plan to use it myself as a boilerplate for starting a new Python project. The tutorial is long because I explain in detail purpose and usage of the tools, however, the end result is quick set up of the new project environment that can be achieved in just a couple of minutes. See [Fast Track](#fast-track) section.
 
 ## How to manage Python versions with pyenv?
 
@@ -43,7 +43,7 @@ brew install pyenv
 For Linux you'd probably better off with `pyenv installer` - [https://github.com/pyenv/pyenv-installer](https://github.com/pyenv/pyenv-installer):
 
 ```bash
-curl [https://pyenv.run](https://pyenv.run/) | bash
+curl https://pyenv.run | bash
 ```
 
 For Windows, there is `pyenv for Windows` - [https://github.com/pyenv-win/pyenv-win](https://github.com/pyenv-win/pyenv-win).
@@ -215,7 +215,7 @@ We can double check it with `python -V`.
 Python 3.8.5
 ```
 
-Now we make Poetry to pick up current Python version:
+Now we make Poetry pick up current Python version:
 
 ```bash
 poetry env use python
@@ -327,11 +327,11 @@ rm get-poetry.py
 
 Time has passed and the new Python version was released. There are new features and bugfixes, so we want to bump Python version in our project. This is a pretty straightforward task for `pyenv` and Poetry.
 
-First, we download, compile and set up new the Python interpreter. Make sure to run this command not from virtual environment but from the project root folder. In my case, I'm going to upgrade to CPython 3.9 beta which is available at the time of writing this text but it can be any other version of CPython interpreter.
+First, we download, compile and set up new the Python interpreter. Make sure to run this command not from virtual environment but from the project root folder. In my case, I'm going to upgrade to CPython 3.9.2 which is available at the time of writing this text but it can be any other version of CPython interpreter.
 
 ```bash
-pyenv install 3.9.0b5
-pyenv local 3.9.0b5
+pyenv install 3.9.2
+pyenv local 3.9.2
 pyenv versions
 ```
 
@@ -339,7 +339,7 @@ pyenv versions
 my-project pyenv versions
   system
   3.8.5
-* 3.9.0b5 (set by /Users/alex/iCloud/dev/projects/my-project/.python-version)
+* 3.9.2 (set by /Users/alex/iCloud/dev/projects/my-project/.python-version)
 ```
 
 Next, we make Poetry use this interpreter for virtual environments.
@@ -374,6 +374,8 @@ Finally, at the bottom left corner click on Python and choose the updated versio
 ![/images/blog/python-best-practice/Untitled%202.png](/images/blog/python-best-practice/Untitled%202.png)
 
 ![/images/blog/python-best-practice/Untitled%203.png](/images/blog/python-best-practice/Untitled%203.png)
+
+> The above images show version 3.9.0 that was used for the previous version of the article
 
 Don't forget to update `[tool.poetry.dependencies]` section in  `pyproject.toml` file to reflect the Python version support. 
 
@@ -437,7 +439,7 @@ As we run tests with VS Code, it obviously marks them red as we didn't implement
 
 ![/images/blog/python-best-practice/Untitled%209.png](/images/blog/python-best-practice/Untitled%209.png)
 
-So let's create `[math.py](http://math.py)` file in `my_project` directory and then implement our simple function:
+So let's create `math.py` file in `my_project` directory and then implement our simple function:
 
 ```python
 def multiply_two_numbers(a, b):
@@ -478,14 +480,14 @@ pytest --cov=my_project tests/
 
 ```
 ================================================= test session starts =============
-platform darwin -- Python 3.9.0b5, pytest-5.4.3, py-1.9.0, pluggy-0.13.1
+platform darwin -- Python 3.9.2, pytest-5.4.3, py-1.9.0, pluggy-0.13.1
 rootdir: /Users/alex/iCloud/dev/projects/my-project
 plugins: cov-2.10.1
 collected 2 items                                                                                                     
 
 tests/test_my_project.py ..                                                  [100%]
 
------------ coverage: platform darwin, python 3.9.0-beta-5 -----------
+----------- coverage: platform darwin, python 3.9.2 -----------
 Name                     Stmts   Miss  Cover
 --------------------------------------------
 my_project/__init__.py       1      0   100%
@@ -535,7 +537,7 @@ git add .
 
 As you can see (and will see further down in the tutorial), the boilerplate for the project is big. It's easy to miss out on something or forget to apply some checks before committing your code to the remote repo. As a consequence, the code will not pass CI automation, your colleagues or maintainers may ask you to make some changes to the code during the code review. All this because of a small nitpick like absence of a newline character at the end of a file. Having newline there is a [POSIX standard](https://pubs.opengroup.org/onlinepubs/9699919799/basedefs/V1_chap03.html#tag_03_206). Even if you are well aware of that, it's very easy to forget or miss out on this. All this back and forth is just a waste of time which could be easily avoided if there was some automation before we commit a piece of code. And there is.
 
-Please welcome `[pre-commit](https://pre-commit.com/)`. It's a tool to run automatic checks on every git commit. It's easy to use and it doesn't require root access. By the way, `pre-commit` is written in Python but can be used for projects in various programming languages.
+Please welcome [`pre-commit`](https://pre-commit.com/). It's a tool to run automatic checks on every git commit. It's easy to use and it doesn't require root access. By the way, `pre-commit` is written in Python but can be used for projects in various programming languages.
 
 ### How to install and use pre-commit?
 
@@ -775,13 +777,13 @@ Every person writes code in their own style. Even on Python which forces you pre
 
 Sometimes, just by looking at some part of code, you could say what person wrote it. What if different people touched the same code and wrote different parts of it in their own style? It can look a bit ugly.
 
-How can we prevent it? We can argue on code review of course. This can significantly slow down merging such pull request. Also, arguing about style is pretty much a matter of taste. At the end of the day, people will argue about the looks instead of paying attention to what the code actually does.
+How can we prevent it? We can argue during the code review of course. This can significantly slow down merging such pull request. Also, arguing about style is pretty much a matter of taste. At the end of the day, people will argue about the looks instead of paying attention to what the code actually does.
 
 In addition, wouldn't it be nice if code looked the same across an entire project, just like it was written by one person?
 
 There is a solution for it, and it's called [Black](https://black.readthedocs.io).
 
-Black formats the code in its own style, so it looks consistent. There is very little that you can customize in Black, so even here there is no room for the argument. Just take it and use it as it is. After all, things like PEP8 and Black were created to agree on one style and just stop arguing about it.
+Black formats the code in its own style, so it looks consistent. There is very little that you can customize in Black, so even this case there is no room for an argument. Just take it and use it as it is. After all, things like PEP8 and Black were created to agree on one style and just stop arguing about it.
 
 Ironically, Black violates PEP8's line length rule. Here is a thing, PEP8 told us that the maximum line length should be no more than 79 characters. It goes deep into history of IBM punch cards and UNIX terminals. PEP8 was written in 2001, things changed since then. People started questioning this rule. "I don't read the code from a UNIX terminal", - they say. "I have 27" monitor for a reason", - they say. There is a problem with that though. Some people work with code from 13" laptops. And viewing diff of two files of 79 char per line max becomes very convenient. Otherwise, you have to scroll horizontally, which is not very nice for working with code. That's why I still think that 79 chars rule should be there.
 
@@ -852,7 +854,7 @@ We also have to suppress some error at Flake8 to make it work with Black. For th
 extend-ignore = E203
 ```
 
-### Use to use Black?
+### How to use Black?
 
 Black usage is fairly simple. Just run it, and it formats the code:
 
@@ -867,7 +869,7 @@ All done! ✨ 🍰 ✨
 2 files reformatted, 2 files left unchanged.
 ```
 
-Remember Flake8 was complaining about some absent new lines? If we run out Git hook now, everything is OK.
+Remember Flake8 was complaining about some absent new lines? If we run our Git hook now, everything is OK.
 
 ```bash
 pre-commit run --all-files
@@ -931,7 +933,7 @@ This will add rulers only for Python. 72 chars is for docstrings.
 
 Type wars started in 70s. IBM with Smalltalk against Sun with Java. As we all know, strongly typed Java won, although Smalltalk being dynamically typed language was considered as a competitive advantage by some companies due to rapid development. Of course, type reduces amount of bugs and runtime errors which can be also solved by having 100% test coverage (as [Uncle Bob claims](https://blog.cleancoder.com/uncle-bob/2016/05/01/TypeWars.html), that's one of the reasons of Python's success). However, let's not forget that not all projects have 100% coverage.
 
-But can we have best of two worlds? Can we have type safety with rapid software development? I think, with Mypy we can. Mypy is a static code analysis tool that makes sure that the code is type safe. The project became so valuable that Python creator Guido van Rossum added type annotations to Python and joined Mypy development. Using type annotations also helps IDE providing a better code completion. As a bonus, type annotations make code more readable for humans too.
+But can we have best of two worlds? Can we have type safety with rapid software development? I think, with Mypy we can. Mypy is a static code analysis tool that makes sure that the code is type safe. The project became so valuable that Python creator Guido van Rossum added type annotations to Python and joined Mypy development. Using type annotations also helps IDE to provide a better code completion. As a bonus, type annotations make code more readable for humans too.
 
 ### How to install mypy
 
@@ -1057,7 +1059,7 @@ git commit -m 'Add Mypy'
 
 ### How to add mypy to git hooks?
 
-Obviously, we want make sure that Mypy runs before committing the code. Add following to `.pre-commit-config.yaml`:
+Obviously, we want to make sure that Mypy runs before committing the code. Add following to `.pre-commit-config.yaml`:
 
 ```yaml
 -   repo: https://github.com/pre-commit/mirrors-mypy
@@ -1132,7 +1134,7 @@ Way better, isn't it?
 
 ## How to install, use, and add isort to git hooks?
 
-VS Code (with Python extension) uses `isort` internally, so there is no additional configuration required. If you don't plan to use it from the command line, there is even no need to install it separately because `pre-commit` installs all dependencies to a its own separate environment.
+VS Code (with Python extension) uses `isort` internally, so there is no additional configuration required. If you don't plan to use it from the command line, there is even no need to install it separately because `pre-commit` installs all dependencies to its own separate environment.
 
 But if you plan to use `isort` apart from VS Code and `pre-commit`, here is how to install it:
 
@@ -1140,7 +1142,7 @@ But if you plan to use `isort` apart from VS Code and `pre-commit`, here is how 
 poetry add --dev isort
 ```
 
-To make it work with Black correctly, we should add following to `pyproject.toml`:
+To make it works with Black correctly, we should add following to `pyproject.toml`:
 
 ```toml
 [tool.isort]
@@ -1194,7 +1196,7 @@ Here is how you can create a fully configured new project in a just a couple of 
 
 ```bash
 poetry new my-project; cd my-project; ls
-pyenv local 3.8.5
+pyenv local 3.9.2
 poetry env use python
 poetry add --dev pytest-cov pre-commit flake8 mypy isort
 poetry add --dev --allow-prereleases black
@@ -1267,7 +1269,7 @@ repos:
     -   id: check-yaml
     -   id: check-added-large-files
 -   repo: https://gitlab.com/pycqa/flake8
-    rev: 3.8.3
+    rev: 3.8.4
     hooks:
     -   id: flake8
 -   repo: https://github.com/psf/black
@@ -1275,12 +1277,12 @@ repos:
     hooks:
       - id: black
 -   repo: https://github.com/pre-commit/mirrors-mypy
-    rev: v0.782
+    rev: v0.812
     hooks:
         - id: mypy
           additional_dependencies: [pydantic]  # add if use pydantic
 -   repo: https://github.com/PyCQA/isort
-    rev: 5.5.4
+    rev: 5.7.0
     hooks:
     -   id: isort
 ```
