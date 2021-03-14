@@ -3,7 +3,7 @@ title: "Python Best Practices for a New Project in 2021"
 date: 2020-10-18
 lastmod: 2021-03-14
 draft: false
-tags: ["python", "vs code", "pyenv", "Poetry", "pytest", "pre-commit", "flake8", "Black", "Mypy", "isort"]
+tags: ["python", "vs code", "pyenv", "poetry", "pytest", "pre-commit", "flake8", "black", "mypy", "isort"]
 TableOfContents: true
 author: "Alex Mitelman"
 ---
