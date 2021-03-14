@@ -1262,7 +1262,7 @@ Create `.pre-commit-config.yaml`.
 ```yaml
 repos:
 -   repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v3.2.0
+    rev: v3.4.0
     hooks:
     -   id: trailing-whitespace
     -   id: end-of-file-fixer
@@ -1298,3 +1298,7 @@ pre-commit autoupdate
 pre-commit run --all-files
 pre-commit run --all-files
 ```
+
+## Conclusion
+
+We've come a long way. Congrats if you've made it all the way from the beginning. I get that probably it was super overwhelming. The point of doing all this work is to set up a new project once and forget about it for a long time. For any further project it will be very quick, I promise. Just skip to Fast Track section, then it's just a couple of minutes to set up all the necessary components. Now, it's time to get our hands dirty with some actual code.
