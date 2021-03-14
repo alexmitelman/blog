@@ -1,7 +1,7 @@
 ---
 title: "Python Best Practices for a New Project in 2021"
 date: 2020-10-18
-lastmod: 2021-03-01
+lastmod: 2021-03-14
 draft: false
 tags: ["python", "vs code"]
 TableOfContents: true
