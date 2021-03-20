@@ -327,7 +327,7 @@ rm get-poetry.py
 
 Time has passed and the new Python version was released. There are new features and bugfixes, so we want to bump Python version in our project. This is a pretty straightforward task for `pyenv` and Poetry.
 
-First, we download, compile and set up new the Python interpreter. Make sure to run this command not from virtual environment but from the project root folder. In my case, I'm going to upgrade to CPython 3.9.2 which is available at the time of writing this text but it can be any other version of CPython interpreter.
+First, we download, compile and set up the new Python interpreter. Make sure to run this command not from virtual environment but from the project root folder. In my case, I'm going to upgrade to CPython 3.9.2 which is available at the time of writing this text but it can be any other version of CPython interpreter.
 
 ```bash
 pyenv install 3.9.2
