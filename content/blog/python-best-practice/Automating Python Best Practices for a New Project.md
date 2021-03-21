@@ -527,6 +527,14 @@ First thing first, we should have `.gitignore` file, so we don't commit some tem
 curl -s https://raw.githubusercontent.com/github/gitignore/master/Python.gitignore >> .gitignore
 ```
 
+You may also exclude VS Code settings folder from version control. We may also exclude PyCharm settings if someone uses that code editor.
+
+```bash
+echo '.vscode/\n.idea/' >> .gitignore
+```
+
+Same way
+
 Now let's add everything we have so far to version control:
 
 ```bash
@@ -1287,6 +1295,7 @@ repos:
 
 ```bash
 echo '.coverage' > .gitignore
+echo '.vscode/\n.idea/' >> .gitignore
 curl -s https://raw.githubusercontent.com/github/gitignore/master/Python.gitignore >> .gitignore
 git init -b main
 git add .
