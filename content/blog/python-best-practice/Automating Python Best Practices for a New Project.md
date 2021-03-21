@@ -527,7 +527,7 @@ First thing first, we should have `.gitignore` file, so we don't commit some tem
 curl -s https://raw.githubusercontent.com/github/gitignore/master/Python.gitignore >> .gitignore
 ```
 
-You may also exclude VS Code settings folder from version control. We may also exclude PyCharm settings if someone uses that code editor.
+You may exclude VS Code settings folder from version control. In addition, we may also exclude PyCharm settings if someone uses that code editor.
 
 ```bash
 echo '.vscode/\n.idea/' >> .gitignore
