@@ -983,6 +983,13 @@ ignore_missing_imports = True
 
 The most important line here is `disallow_untyped_defs = True`. It forces you to define functions with types. For existing legacy projects, you'd probably disable it but as we create a new project, it's would be beneficial to make sure we never forget to add type annotations.
 
+You may want to disable Mypy for tests. Just add following config:
+
+```toml
+[mypy-tests.*]
+ignore_errors = True
+```
+
 For better compatibility, there are various plugins for Mypy. For example, if you plan to use `pydantic` for data validation and serialization, config file will look like this:
 
 ```toml
@@ -1010,11 +1017,7 @@ Here is the output after we added new config:
 
 ```
 my_project/math.py:1: error: Function is missing a type annotation
-tests/test_my_project.py:5: error: Function is missing a return type annotation
-tests/test_my_project.py:5: note: Use "-> None" if function does not return a value
-tests/test_my_project.py:9: error: Function is missing a return type annotation
-tests/test_my_project.py:9: note: Use "-> None" if function does not return a value
-Found 3 errors in 2 files (checked 4 source files)
+Found 1 errors in 1 files (checked 4 source files)
 ```
 
 In addition, VS Code uses Mypy as a linter and marks incorrect parts:
@@ -1041,14 +1044,6 @@ def multiply_two_numbers(
     a: Union[int, Real], b: Union[int, Real]
 ) -> Union[int, Real]:
     return a * b
-```
-
-In test file, just add   `-> None` as a return type:
-
-```python
-def test_multiply_two_numbers() -> None:
-    result = multiply_two_numbers(2, 3)
-    assert result == 6
 ```
 
 Commit changes:
@@ -1255,6 +1250,9 @@ check_untyped_defs = True
 no_implicit_reexport = True
 disallow_untyped_defs = True
 ignore_missing_imports = True
+
+[mypy-tests.*]
+ignore_errors = True
 ```
 
 Create `.pre-commit-config.yaml`. 
