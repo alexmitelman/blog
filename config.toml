@@ -33,7 +33,7 @@ googleAnalytics = "UA-180800968-1"
     weight = 1
   [[menu.nav]]
     name = "System Design Weekly"
-    url = "/tags/system-design/"
+    url = "/system-design-weekly/"
     weight = 2
   [[menu.nav]]
     name = "RSS"
