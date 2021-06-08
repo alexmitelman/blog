@@ -36,9 +36,13 @@ googleAnalytics = "UA-180800968-1"
     url = "/system-design-weekly/"
     weight = 2
   [[menu.nav]]
+    name = "Blog"
+    url = "/blog/"
+    weight = 3
+  [[menu.nav]]
     name = "RSS"
     url = "/index.xml"
-    weight = 3
+    weight = 4
 
   [[menu.link]]
     name = "Email"
