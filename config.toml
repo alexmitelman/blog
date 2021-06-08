@@ -48,3 +48,7 @@ googleAnalytics = "UA-180800968-1"
     name = "LinkedIn"
     url = "https://www.linkedin.com/in/alex-mitelman/"
     weight = 2
+  [[menu.link]]
+    name = "Twitter"
+    url = "https://twitter.com/alex_mitelman"
+    weight = 3
