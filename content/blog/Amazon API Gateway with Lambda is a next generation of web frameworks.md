@@ -50,7 +50,7 @@ Although Serverless is nice for building very simple applications, it won't help
 
 This brings us to the next question. Is it worth it? Why do I need to learn another tool?
 
-Of course, there is no right answer. It depends. There was some learning curve for your favorite web framework. Why CodeFormation should be any different? It's just a tool that serves its purpose. The bigger question is why should I make a serverless application while I can develop it with my favorite framework. And the answer is again "It depends".
+Of course, there is no right answer. It depends. There was some learning curve for your favorite web framework. Why CloudFormation should be any different? It's just a tool that serves its purpose. The bigger question is why should I make a serverless application while I can develop it with my favorite framework. And the answer is again "It depends".
 
 I've developed a Telegram bot that makes some basic calculations for me. I am a single user of this Telegram bot. It's implemented with Lambda so I don't need to spin up and manage an entire EC2 instance that will answer my question once a week or so.
 
