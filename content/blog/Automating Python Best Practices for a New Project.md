@@ -1309,3 +1309,5 @@ pre-commit run --all-files
 ## Conclusion
 
 We've come a long way. Congrats if you've made it all the way from the beginning. I get that probably it was super overwhelming. The point of doing all this work is to set up a new project once and forget about it for a long time. For any further project it will be very quick, I promise. Just skip to Fast Track section, then it's just a couple of minutes to set up all the necessary components. Now, it's time to get our hands dirty with some actual code.
+
+{{< cc >}}

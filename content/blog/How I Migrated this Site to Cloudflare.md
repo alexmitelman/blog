@@ -36,3 +36,5 @@ Setting up Cloudflare Pages turned out to be almost easy. We permit it to access
 Cloudflare Pages uses HTTPS out of the box. More importantly, Cloudflare is famous for being a CDN provider. This means that the website is being served from the various edge servers which are always close to the client. This promises a better user experience with faster page loads.
 
 I'm excited to consolidate most of the services I use for my website within one service provider. I'm looking forward to trying out more services by Cloudflare. For example, there is [Cloudflare Registrar](https://www.cloudflare.com/products/registrar/) with the motto "You pay what we pay". This means that we can register and renew the existing domain at a wholesale price.
+
+{{<cc>}}

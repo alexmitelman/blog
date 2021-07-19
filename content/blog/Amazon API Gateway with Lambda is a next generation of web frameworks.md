@@ -67,3 +67,5 @@ With all that being said, I imagine that DevOps become a part of a development t
 We always build on top of existing technologies adding another layer of abstractions. We moved bytes between CPU registers with Assembly, then C allowed us to express logic in a more human-readable form. Higher-level languages allowed us to build dynamic websites. Web frameworks allowed us to concentrate on implementing the actual business logic and API. Serverless application is another level of abstraction that allows us to provision and deploy scalable web applications. The application can be written on a variety of languages supported by AWS Lambda, including Python, JavaScript, Go, Java, C#. Different parts of such applications can be developed in different languages, for example, if there are different teams in charge of different parts of an API. Debugging is going to be more challenging due to the cloud-first nature of such a system. I'm looking forward to seeing the progress in tooling for this ecosystem.
 
 *Update. There is a [follow-up blog post on serverless frameworks]({{< ref "/blog/Follow up on serverless frameworks.md" >}})*.
+
+{{<cc>}}
